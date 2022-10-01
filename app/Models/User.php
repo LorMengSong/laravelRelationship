@@ -43,20 +43,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function Address(){
-        return $this->hasOne(address::class,'user_id');
-    }
-    public static function getUsers($user_id=0){
-        $data = [];
-        $entries = User::all();
-        if($entries){
-            foreach($entries as $value){
-                $result_data['id'] = $value->id;
-                $result_data['name'] = $value->name;
-                $result_data['email'] = $value->email;
-                $data[] = $result_data;
-            }
-        }
-        return $data;
-    }
+    
 }
